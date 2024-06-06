@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pengukur suhu dan logika pertamina</title>
+</head>
+<body>
+    <!-- pengukur suhu -->
+    <h1>pengukur suhu</h1>
+    <p>
+        Masukkan suhu <input type="text" id="suhu">
+    </p>
+    <p>
+        <button onclick="cekSuhu()">kirim</button>
+    </p>
+    <!-- pengukur suhu end -->
+
+    <!-- pertamina logic -->
+     <h1>Logic pertamina</h1>
+     <p>
+        Masukkan kendaraan (mobil/motor) <input type="text" id="kendaraan">
+    </p>
+     <p>
+        tipe kendaraan (pribadi atau umum)<input type="text" id="tipeKendaraan">
+    </p>
+     <p>
+        CC kendaraan (Cukup angka : misal 120)<input type="text" id="ccKendaraan">
+    </p>
+    <p>
+        <button onclick="logicPertamina()">kirim</button>
+    </p>
+    <script>
+        // logika suhu
+        function cekSuhu() {
+                suhu = Number(document.getElementById("suhu").value)
+                if (suhu > 100 && suhu <= 500) {
+                    alert(`air menguap`)
+                } else if (suhu <= 100 && suhu >= 1) {
+                    alert(`air mencair`)
+                } else if (suhu <= 0 && suhu > -100) {
+                    alert (`air membeku`)
+                } else if (suhu < -100 || suhu > 500) {
+                    alert(`suhu tidak terdefenisi`)
+                } else {
+                    alert('anda memasukkan bukan angka')
+                }
+                
+        }
+
+        // logika pertamina
+function logicPertamina() {
+       const kendaraan = document.getElementById("kendaraan").value;
+       const tipeKendaraan = document.getElementById("tipeKendaraan").value
+       const ccKendaraan = document.getElementById("ccKendaraan").value
+       if (kendaraan == "motor" || tipeKendaraan == "umum" && ccKendaraan >= 0) {
+        alert(`kendaraan ${kendaraan} tipe ${tipeKendaraan} dengan cc ${ccKendaraan}cc menggunakan bbm Subsidi `)
+       } else if (kendaraan == "mobil" && tipeKendaraan == "pribadi" && ccKendaraan < 1500) {
+        alert(`kendaraan ${kendaraan} tipe ${tipeKendaraan} dengan cc ${ccKendaraan}cc menggunakan bbm Pertamax `)
+       } else if (kendaraan == "mobil" && tipeKendaraan == "pribadi" && ccKendaraan >= 1500) {
+        alert(`kendaraan ${kendaraan} tipe ${tipeKendaraan} dengan cc ${ccKendaraan}cc menggunakan bbm Pertamax turbo`)
+       } else {
+        alert(`harap masukkan data yang benar`)
+       }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
